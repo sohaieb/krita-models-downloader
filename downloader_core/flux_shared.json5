@@ -1,0 +1,27 @@
+[
+  {
+    "filename": "FLUX.1-dev-ControlNet-Union-Pro-2.0-fp8.safetensors",
+    "url": "https://huggingface.co/ABDALLALSWAITI/FLUX.1-dev-ControlNet-Union-Pro-2.0-fp8/resolve/main/diffusion_pytorch_model.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "FLUX.1-dev-Controlnet-Inpainting-Beta.safetensors",
+    "url": "https://huggingface.co/alimama-creative/FLUX.1-dev-Controlnet-Inpainting-Beta/resolve/main/diffusion_pytorch_model.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "sigclip_vision_patch14_384.safetensors",
+    "url": "https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors",
+    "path": "models/clip_vision"
+  },
+  {
+    "filename": "flux1-redux-dev.safetensors",
+    "url": "https://files.interstice.cloud/models/flux1-redux-dev.safetensors",
+    "path": "models/style_models"
+  },
+  {
+    "filename": "FLUX.1-Turbo-Alpha.safetensors",
+    "url": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors",
+    "path": "models/loras"
+  }
+]

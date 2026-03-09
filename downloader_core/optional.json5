@@ -1,0 +1,157 @@
+[
+  {
+    "filename": "noobaiInpainting_v10.fp16.safetensors",
+    "url": "https://huggingface.co/Acly/NoobAI-Inpainting/resolve/main/noobaiInpainting_v10.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-scribble_pidinet.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-scribble_pidinet/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-lineart_anime.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-lineart_anime/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-softedge_hed.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-softedge_hed/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob_sdxl_controlnet_canny.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-canny/resolve/main/noob_sdxl_controlnet_canny.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-depth_midas-v1-1.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-depth_midas-v1-1/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-normal.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-normal/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noobaiXLControlnet_openposeModel.safetensors",
+    "url": "https://huggingface.co/Laxhar/noob_openpose/resolve/main/openpose_pre.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "noob-sdxl-controlnet-tile.fp16.safetensors",
+    "url": "https://huggingface.co/Eugeoter/noob-sdxl-controlnet-tile/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "clip-vision_vit-g.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors",
+    "path": "models/clip_vision"
+  },
+  {
+    "filename": "noobIPAMARK1_mark1.safetensors",
+    "url": "https://huggingface.co/r3gm/noob-ipa/resolve/main/model_G/noobIPAMARK1_mark1.safetensors",
+    "path": "models/ipadapter"
+  },
+  {
+    "filename": "novaAnimeXL_ilV125.safetensors",
+    "url": "https://huggingface.co/r3gm/noob-ipa/resolve/main/model_G/noobIPAMARK1_mark1.safetensors",
+    "path": "models/checkpoints"
+  },
+  {
+    "filename": "xinsir-controlnet-union-sdxl-1.0-promax.safetensors",
+    "url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_v1p_sdxl_qrcode_monster.safetensors",
+    "url": "https://huggingface.co/monster-labs/control_v1p_sdxl_qrcode_monster/resolve/main/diffusion_pytorch_model.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "ip-adapter-faceid-plusv2_sdxl.bin",
+    "url": "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl.bin",
+    "path": "models/ipadapter"
+  },
+  {
+    "filename": "ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+    "path": "models/loras"
+  },
+  {
+    "filename": "RealVisXL_V5.0_fp16.safetensors",
+    "url": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors",
+    "path": "models/checkpoints"
+  },
+  {
+    "filename": "zavychromaxl_v80.safetensors",
+    "url": "https://huggingface.co/misri/zavychromaxl_v80/resolve/main/zavychromaxl_v80.safetensors",
+    "path": "models/checkpoints"
+  },
+  {
+    "filename": "control_lora_rank128_v11p_sd15_scribble_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_lora_rank128_v11p_sd15_scribble_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_v11p_sd15_lineart_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_lineart_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_v11p_sd15_softedge_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_softedge_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_v11p_sd15_canny_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_canny_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_lora_rank128_v11f1p_sd15_depth_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_lora_rank128_v11f1p_sd15_depth_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_lora_rank128_v11p_sd15_normalbae_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_lora_rank128_v11p_sd15_normalbae_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_lora_rank128_v11p_sd15_openpose_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_lora_rank128_v11p_sd15_openpose_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_lora_rank128_v11p_sd15_seg_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_lora_rank128_v11p_sd15_seg_fp16.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "control_v1p_sd15_qrcode_monster.safetensors",
+    "url": "https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster/resolve/main/control_v1p_sd15_qrcode_monster.safetensors",
+    "path": "models/controlnet"
+  },
+  {
+    "filename": "ip-adapter-faceid-plusv2_sd15.bin",
+    "url": "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15.bin",
+    "path": "models/ipadapter"
+  },
+  {
+    "filename": "ip-adapter-faceid-plusv2_sd15_lora.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15_lora.safetensors",
+    "path": "models/loras"
+  },
+  {
+    "filename": "serenity_v21Safetensors.safetensors",
+    "url": "https://huggingface.co/Acly/SD-Checkpoints/resolve/main/serenity_v21Safetensors.safetensors",
+    "path": "models/checkpoints"
+  },
+  {
+    "filename": "dreamshaper_8.safetensors",
+    "url": "https://huggingface.co/Lykon/DreamShaper/resolve/main/DreamShaper_8_pruned.safetensors",
+    "path": "models/checkpoints"
+  }
+]

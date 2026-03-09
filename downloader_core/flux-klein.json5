@@ -1,0 +1,22 @@
+[
+  {
+    filename: "flux-2-klein-4b-Q6_K.gguf",
+    url: "https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/resolve/main/flux-2-klein-4b-Q6_K.gguf",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "flux-2-klein-4b-fp8.safetensors",
+    url: "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "flux-2-klein-9b-fp8.safetensors",
+    url: "https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-fp8/resolve/main/flux-2-klein-9b-fp8.safetensors?download=true",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "flux-2-klein-base-9b-fp8.safetensors",
+    url: "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-9b-fp8/resolve/main/flux-2-klein-base-9b-fp8.safetensors?download=true",
+    path: "models/diffusion_models",
+  }
+]

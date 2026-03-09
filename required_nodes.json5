@@ -1,0 +1,22 @@
+[
+  {
+    name: "comfyui_controlnet_aux",
+    category: "ControlNet Preprocessors",
+    url: "https://github.com/Fannovel16/comfyui_controlnet_aux",
+  },
+  {
+    name: "ComfyUI_IPAdapter_plus",
+    category: "IP-Adapter",
+    url: "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+  },
+  {
+    name: "comfyui-tooling-nodes",
+    category: "External Tooling Nodes",
+    url: "https://github.com/Acly/comfyui-tooling-nodes",
+  },
+  {
+    name: "comfyui-inpaint-nodes",
+    category: "Inpaint Nodes",
+    url: "https://github.com/Acly/comfyui-inpaint-nodes",
+  },
+]
