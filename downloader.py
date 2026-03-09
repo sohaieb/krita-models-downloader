@@ -22,7 +22,8 @@ parser = argparse.ArgumentParser(
 
 
 parser.add_argument("--optional", action="store_true", help="Install Optional checkpoints & controlnet for SD1.5, NoobAi, Illustrious, etc.")
-parser.add_argument("--required", action="store_true", help="Install Required nodes and models so Krita can work correctly.")
+parser.add_argument("--required", action="store_true", help="Install Required models so Krita can work correctly.")
+parser.add_argument("--nodes", action="store_true", help="Install Required nodes.")
 parser.add_argument("--custom", action="store", type=str, help="Install custom models via a custom path, exp. inputs/mycustom.json5")
 args = parser.parse_args(sys.argv[1:])
 
@@ -43,8 +44,8 @@ optional_models_path = path.join("downloader_core", "optional.json5")
 all_models = []
 
 
-if hasattr(args, "required") and bool(args.required) == True:
-    with open(required_nodes_file, "r") as f:
+if hasattr(args, "nodes") and bool(args.nodes) == True:
+     with open(required_nodes_file, "r") as f:
         required_nodes = json.load(fp=f)
         for node in required_nodes:
             spin.start()
@@ -55,7 +56,9 @@ if hasattr(args, "required") and bool(args.required) == True:
             print(result.stdout)
             spin.succeed(f"Node: {node['name']} is installed")
         spin.succeed(f"All required nodes are installed!")
-    spin.start()    
+        
+spin.start()
+if hasattr(args, "required") and bool(args.required) == True:
     with open(required_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
