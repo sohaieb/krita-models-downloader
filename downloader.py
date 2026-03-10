@@ -28,6 +28,7 @@ parser.add_argument("--optional", action="store_true", help="Install Optional ch
 parser.add_argument("--required", action="store_true", help="Install Required models so Krita can work correctly.")
 parser.add_argument("--nodes", action="store_true", help="Install Required nodes.")
 parser.add_argument("--custom", action="store", type=str, help="Install custom models via a custom path, exp. inputs/mycustom.json5")
+parser.add_argument("--core", action="store", type=str, help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
 args = parser.parse_args(sys.argv[1:])
 
 
@@ -47,9 +48,15 @@ optional_models_path = path.join("downloader_core", "optional.json5")
 # Set the list of models basing on args
 all_models = []
 
+# Set arg conditions for better access
+is_nodes = hasattr(args, "nodes") and bool(args.nodes) == True
+is_core = hasattr(args, "core") and bool(args.core) == True
+is_required = hasattr(args, "required") and bool(args.required) == True
+is_optional = hasattr(args, "optional") and args.optional == True
+
 
 # Setup required custom_nodes 
-if hasattr(args, "nodes") and bool(args.nodes) == True:
+if is_core or is_nodes:
      with open(required_nodes_file, "r") as f:
         required_nodes = json.load(fp=f)
         for node in required_nodes:
@@ -66,12 +73,12 @@ if hasattr(args, "nodes") and bool(args.nodes) == True:
 spin.start()
 
 # Setup required models
-if hasattr(args, "required") and bool(args.required) == True:
+if is_core or is_required:
     with open(required_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
 # Setup required optional models
-if hasattr(args, "optional") and args.optional == True:
+if is_core or is_optional:
     with open(optional_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
