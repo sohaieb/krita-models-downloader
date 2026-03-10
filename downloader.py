@@ -15,6 +15,7 @@ load_dotenv()
 
 civitai_secret = getenv("CIVITAI_TOKEN")
 huggingface_secret = getenv("HUGGINGFACE_TOKEN")
+comfyui_python_path = getenv("COMFYUI_PYTHON_PATH")
 
 
 # Parse cli arguments 
@@ -57,7 +58,7 @@ if hasattr(args, "nodes") and bool(args.nodes) == True:
             node_path = path.join("custom_nodes",node['name'])
             Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
             if path.isfile(path.join(node_path, 'requirements.txt')):
-                result = subprocess.run(['pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
+                result = subprocess.run([comfyui_python_path,'-m', 'pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
                 print(result.stdout)
             spin.succeed(f"Node: {node['name']} is installed")
         spin.succeed(f"All required nodes are installed!")
