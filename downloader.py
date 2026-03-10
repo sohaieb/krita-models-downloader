@@ -1,7 +1,7 @@
 from yeeti.zero_spinner import spinner
 from robust_downloader import download
 import pyjson5 as json
-from os import path, getenv
+from os import path, getenv, listdir
 import argparse
 import sys
 import requests
@@ -40,9 +40,10 @@ if (hasattr(args, "help") and args.help == True) or len(vars(args)) == 0 :
 
 spin = spinner('Init...').start()
 
-required_models_path = path.join("downloader_core","required.json5")
+downloader_core_path = path.join("downloader_core")
+required_models_path = path.join(downloader_core_path,"required.json5")
 required_nodes_file = path.join("required_nodes.json5")
-optional_models_path = path.join("downloader_core", "optional.json5")
+optional_models_path = path.join(downloader_core_path, "optional.json5")
 
 
 # Set the list of models basing on args
@@ -73,13 +74,21 @@ if is_core or is_nodes:
         
 spin.start()
 
+# Setup all core models for Krita
+if is_core:
+    all_files = listdir(downloader_core_path)
+    for file in all_files:
+        file_path = path.join(downloader_core_path,file)
+        with open(file_path, "r") as f:
+            all_models = all_models + json.load(fp=f)
+
 # Setup required models
-if is_core or is_required:
+if is_required:
     with open(required_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
 # Setup required optional models
-if is_core or is_optional:
+if is_optional:
     with open(optional_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
