@@ -63,10 +63,11 @@ if is_core or is_nodes:
             spin.start()
             print(f"[blue]Start installing {node['name']}..")
             node_path = path.join("custom_nodes",node['name'])
-            Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
-            if path.isfile(path.join(node_path, 'requirements.txt')):
-                result = subprocess.run([comfyui_python_path,'-m', 'pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
-                print(result.stdout)
+            if not path.isdir(node_path):
+                Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
+                if path.isfile(path.join(node_path, 'requirements.txt')):
+                    result = subprocess.run([comfyui_python_path,'-m', 'pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
+                    print(result.stdout)
             spin.succeed(f"Node: {node['name']} is installed")
         spin.succeed(f"All required nodes are installed!")
         
