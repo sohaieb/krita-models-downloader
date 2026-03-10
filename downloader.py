@@ -10,12 +10,14 @@ from git import Repo, RemoteProgress
 import subprocess
 from rich import print
 
-
+# Parse .env variables
 load_dotenv()
 
 civitai_secret = getenv("CIVITAI_TOKEN")
 huggingface_secret = getenv("HUGGINGFACE_TOKEN")
 
+
+# Parse cli arguments 
 parser = argparse.ArgumentParser(
                     prog='krita-downloader',
                     description='Download Krita AI-diffusion models')
@@ -28,6 +30,7 @@ parser.add_argument("--custom", action="store", type=str, help="Install custom m
 args = parser.parse_args(sys.argv[1:])
 
 
+# Display help if --help is set
 if (hasattr(args, "help") and args.help == True) or len(vars(args)) == 0 :
     parser.print_help()
     exit()
@@ -44,6 +47,7 @@ optional_models_path = path.join("downloader_core", "optional.json5")
 all_models = []
 
 
+# Setup required custom_nodes 
 if hasattr(args, "nodes") and bool(args.nodes) == True:
      with open(required_nodes_file, "r") as f:
         required_nodes = json.load(fp=f)
@@ -52,20 +56,25 @@ if hasattr(args, "nodes") and bool(args.nodes) == True:
             print(f"[blue]Start installing {node['name']}..")
             node_path = path.join("custom_nodes",node['name'])
             Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
-            result = subprocess.run(['pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
-            print(result.stdout)
+            if path.isfile(path.join(node_path, 'requirements.txt')):
+                result = subprocess.run(['pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
+                print(result.stdout)
             spin.succeed(f"Node: {node['name']} is installed")
         spin.succeed(f"All required nodes are installed!")
         
 spin.start()
+
+# Setup required models
 if hasattr(args, "required") and bool(args.required) == True:
     with open(required_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
+# Setup required optional models
 if hasattr(args, "optional") and args.optional == True:
     with open(optional_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
+# Setup custom models
 if hasattr(args, "custom") and bool(args.custom) == True:
     custom_models_path = path.join(args.custom)
     with open(custom_models_path) as f:
@@ -74,6 +83,7 @@ if hasattr(args, "custom") and bool(args.custom) == True:
 
 spin.succeed("Models list is set")
 
+# Download the set of models
 for model in all_models:
     url = model['url']
     with requests.Session() as s:
