@@ -28,7 +28,7 @@ parser.add_argument("--optional", action="store_true", help="Install Optional ch
 parser.add_argument("--required", action="store_true", help="Install Required models so Krita can work correctly.")
 parser.add_argument("--nodes", action="store_true", help="Install Required nodes.")
 parser.add_argument("--custom", action="store", type=str, help="Install custom models via a custom path, exp. inputs/mycustom.json5")
-parser.add_argument("--core", action="store", type=str, help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
+parser.add_argument("--core", action="store_true", help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
 args = parser.parse_args(sys.argv[1:])
 
 
