@@ -15,7 +15,6 @@ load_dotenv()
 
 civitai_secret = getenv("CIVITAI_TOKEN")
 huggingface_secret = getenv("HUGGINGFACE_TOKEN")
-comfyui_python_path = getenv("COMFYUI_PYTHON_PATH")
 
 
 # Parse cli arguments 
@@ -27,8 +26,10 @@ parser = argparse.ArgumentParser(
 parser.add_argument("--optional", action="store_true", help="Install Optional checkpoints & controlnet for SD1.5, NoobAi, Illustrious, etc.")
 parser.add_argument("--required", action="store_true", help="Install Required models so Krita can work correctly.")
 parser.add_argument("--nodes", action="store_true", help="Install Required nodes.")
-parser.add_argument("--custom", action="store", type=str, help="Install custom models via a custom path, exp. inputs/mycustom.json5")
+parser.add_argument("--custom", action="extend", nargs="+", type=str, help="Install custom models via a custom path, exp. --custom mycustom.json5 mycustom2.json5..")
+parser.add_argument("--exclude", action="extend", nargs="+", type=str, help="Exclude models via a custom path, exp. --core --exclude mycustom.json5 mycustom2.json5..")
 parser.add_argument("--core", action="store_true", help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
+
 args = parser.parse_args(sys.argv[1:])
 
 
@@ -52,6 +53,7 @@ all_models = []
 # Set arg conditions for better access
 is_nodes = hasattr(args, "nodes") and bool(args.nodes) == True
 is_core = hasattr(args, "core") and bool(args.core) == True
+is_excluded = hasattr(args, "exclude") and bool(args.exclude) == True
 is_required = hasattr(args, "required") and bool(args.required) == True
 is_optional = hasattr(args, "optional") and args.optional == True
 
@@ -64,19 +66,23 @@ if is_core or is_nodes:
             spin.start()
             print(f"[blue]Start installing {node['name']}..")
             node_path = path.join("custom_nodes",node['name'])
-            if not path.isdir(node_path):
-                Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
-                if path.isfile(path.join(node_path, 'requirements.txt')):
-                    result = subprocess.run([comfyui_python_path,'-m', 'pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
-                    print(result.stdout)
-            spin.succeed(f"Node: {node['name']} is installed")
+            try:
+                if not path.isdir(node_path):
+                    Repo.clone_from(url=node['url'], to_path=node_path,progress=RemoteProgress())
+                    if path.isfile(path.join(node_path, 'requirements.txt')):
+                        result = subprocess.run(['pip', 'install', '-r', 'requirements.txt'], shell=True,cwd=node_path)
+                        print(result.stdout)
+                spin.succeed(f"Node: {node['name']} is installed")
+            except Exception as e:
+                print(f"[red] Error: {str(e)}")
         spin.succeed(f"All required nodes are installed!")
         
 spin.start()
 
 # Setup all core models for Krita
 if is_core:
-    all_files = listdir(downloader_core_path)
+    all_files_in_core = listdir(downloader_core_path)
+    all_files = list(filter(lambda file: file not in args.exclude ,all_files_in_core))
     for file in all_files:
         file_path = path.join(downloader_core_path,file)
         with open(file_path, "r") as f:
@@ -93,10 +99,11 @@ if is_optional:
         all_models = all_models + json.load(fp=f)
 
 # Setup custom models
-if hasattr(args, "custom") and bool(args.custom) == True:
-    custom_models_path = path.join(args.custom)
-    with open(custom_models_path) as f:
-        all_models = all_models + json.load(fp=f)
+if hasattr(args, "custom") and bool(args.custom) == True and len(args.custom) > 0:
+    for custom_path in args.custom:
+        custom_models_path = path.join(custom_path)
+        with open(custom_models_path) as f:
+            all_models = all_models + json.load(fp=f)
 
 
 spin.succeed("Models list is set")
