@@ -60,6 +60,24 @@ python downloader.py --custom downloader_core/flux-klein.json5
 
 ---
 
+#### Setup All Krita Core models (required, optional and others) and custom ComfyUi nodes
+
+- Setup all
+
+```bash
+python downloader.py --core
+```
+
+- Setup all except few ones (exclusion), example: exclude z-image and flux models
+
+- Setup all
+
+```bash
+python downloader.py --core --exclude z-image.json5 flux.json5
+```
+
+---
+
 #### Setup Z-Image
 
 ```bash
@@ -71,7 +89,7 @@ python downloader.py --custom downloader_core/z-image.json5
 ### Download custom models (like from [Civitai.com](https://civitai.com/))
 
 ```bash
-python downloader.py --custom myfolder/myfile.json5
+python downloader.py --custom my-folder/myfile.json5 another-folder/my-other-file.json5 ..
 ```
 
 **Note:** if you struggle about how to define your own custom models in json5 format, please take a look at one of the \_.json5 files in `downloader_core/*`
