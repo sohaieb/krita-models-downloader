@@ -19,4 +19,9 @@
     category: "Inpaint Nodes",
     url: "https://github.com/Acly/comfyui-inpaint-nodes",
   },
+  {
+    name: "ComfyUI-GGUF",
+    category: "GGUF loader",
+    url: "https://github.com/city96/ComfyUI-GGUF",
+  },
 ]
