@@ -110,7 +110,7 @@ if hasattr(args, "custom") and bool(args.custom) == True and len(args.custom) > 
             
             if is_bymodels:
                 extracted_models = list(filter(lambda model: model['filename'] in args.bymodels, custom_file_models))
-                all_models = all_models + extracted_models
+                all_models = all_models + (custom_file_models if len(extracted_models) == 0 else extracted_models)
             else:
                 all_models = all_models + custom_file_models 
 
