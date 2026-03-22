@@ -27,6 +27,7 @@ parser.add_argument("--optional", action="store_true", help="Install Optional ch
 parser.add_argument("--required", action="store_true", help="Install Required models so Krita can work correctly.")
 parser.add_argument("--nodes", action="store_true", help="Install Required nodes.")
 parser.add_argument("--custom", action="extend", nargs="+", type=str, help="Install custom models via a custom path, exp. --custom mycustom.json5 mycustom2.json5..")
+parser.add_argument("--bymodels", action="extend", nargs="+", type=str, help="Install specific custom models, exp. --custom mycustom.json5 mycustom2.json5 --bymodel modelname.safetensors modelname2.safetensors ..")
 parser.add_argument("--exclude", action="extend", nargs="+", type=str, help="Exclude models via a custom path, exp. --core --exclude mycustom.json5 mycustom2.json5..")
 parser.add_argument("--core", action="store_true", help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
 
@@ -56,6 +57,7 @@ is_core = hasattr(args, "core") and bool(args.core) == True
 is_excluded = hasattr(args, "exclude") and bool(args.exclude) == True
 is_required = hasattr(args, "required") and bool(args.required) == True
 is_optional = hasattr(args, "optional") and args.optional == True
+is_bymodels = hasattr(args, "bymodels") and bool(args.bymodels) == True
 
 
 # Setup required custom_nodes 
@@ -102,8 +104,15 @@ if is_optional:
 if hasattr(args, "custom") and bool(args.custom) == True and len(args.custom) > 0:
     for custom_path in args.custom:
         custom_models_path = path.join(custom_path)
+
         with open(custom_models_path) as f:
-            all_models = all_models + json.load(fp=f)
+            custom_file_models = json.load(fp=f)
+            
+            if is_bymodels:
+                extracted_models = list(filter(lambda model: model['filename'] in args.bymodels, custom_file_models))
+                all_models = all_models + extracted_models
+            else:
+                all_models = all_models + custom_file_models 
 
 
 spin.succeed("Models list is set")
