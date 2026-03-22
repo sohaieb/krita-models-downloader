@@ -24,4 +24,19 @@
     category: "GGUF loader",
     url: "https://github.com/city96/ComfyUI-GGUF",
   },
+  {
+    name: "rgthree-comfy",
+    category: "rgthree-comfy",
+    url: "https://github.com/rgthree/rgthree-comfy",
+  },
+  {
+    name: "ComfyUI-VideoHelperSuite",
+    category: "ComfyUI-VideoHelperSuite",
+    url: "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite",
+  },
+  {
+    name: "ComfyUI-MultiGPU",
+    category: "ComfyUI-MultiGPU",
+    url: "https://github.com/pollockjj/ComfyUI-MultiGPU",
+  },
 ]
