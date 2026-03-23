@@ -39,4 +39,9 @@
     category: "ComfyUI-MultiGPU",
     url: "https://github.com/pollockjj/ComfyUI-MultiGPU",
   },
+  {
+    name: "ComfyUI-nunchaku",
+    category: "ComfyUI-nunchaku",
+    url: "https://github.com/nunchaku-ai/ComfyUI-nunchaku",
+  },
 ]
