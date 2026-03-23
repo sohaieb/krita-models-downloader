@@ -132,10 +132,10 @@ if is_flux or is_klein or is_optional_flux:
     if is_flux:
         with open(flux_models_path, "r") as f:
             all_models = all_models + json.load(fp=f)
-    elif is_klein:
+    if is_klein:
         with open(klein_models_path, "r") as f:
             all_models = all_models + json.load(fp=f)
-    else:
+    if is_optional_flux:
         with open(optional_flux_models_path, "r") as f:
             all_models = all_models + json.load(fp=f)
 
