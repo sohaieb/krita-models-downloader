@@ -116,7 +116,7 @@ if is_core:
             all_models = all_models + json.load(fp=f)
 
 # Setup required models
-if is_required:
+if is_required or is_flux or is_zimage or is_klein or is_optional_flux:
     with open(required_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
