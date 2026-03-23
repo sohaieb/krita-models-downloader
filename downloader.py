@@ -31,6 +31,11 @@ parser.add_argument("--bymodels", action="extend", nargs="+", type=str, help="In
 parser.add_argument("--exclude", action="extend", nargs="+", type=str, help="Exclude models via a custom path, exp. --core --exclude mycustom.json5 mycustom2.json5..")
 parser.add_argument("--core", action="store_true", help="Install all core Krita models & nodes (includes: required, optional and all krita models)")
 
+parser.add_argument("--flux", action="store_true", help="Install flux Krita models & nodes (includes: required and flux models)")
+parser.add_argument("--optionalflux", action="store_true", help="Install Optional flux Krea & Kontext models & nodes (includes: required)")
+parser.add_argument("--zimage", action="store_true", help="Install z-image Krita models & nodes (includes: required and z-image models)")
+parser.add_argument("--klein", action="store_true", help="Install Flux Klein Krita models & nodes (includes: required and Flux Klein models)")
+
 args = parser.parse_args(sys.argv[1:])
 
 
@@ -42,10 +47,21 @@ if (hasattr(args, "help") and args.help == True) or len(vars(args)) == 0 :
 
 spin = spinner('Init...').start()
 
+# Base 
+required_nodes_file = path.join("required_nodes.json5")
 downloader_core_path = path.join("downloader_core")
 required_models_path = path.join(downloader_core_path,"required.json5")
-required_nodes_file = path.join("required_nodes.json5")
 optional_models_path = path.join(downloader_core_path, "optional.json5")
+
+# Flux
+shared_flux_models_path = path.join(downloader_core_path, "flux_shared.json5")
+flux_models_path = path.join(downloader_core_path, "flux.json5")
+optional_flux_models_path = path.join(downloader_core_path, "flux-optional.json5")
+klein_models_path = path.join(downloader_core_path, "klein.json5")
+
+# ZImage
+zimage_models_path = path.join(downloader_core_path, "z-image.json5")
+
 
 
 # Set the list of models basing on args
@@ -58,10 +74,19 @@ is_excluded = hasattr(args, "exclude") and bool(args.exclude) == True
 is_required = hasattr(args, "required") and bool(args.required) == True
 is_optional = hasattr(args, "optional") and args.optional == True
 is_bymodels = hasattr(args, "bymodels") and bool(args.bymodels) == True
+is_custom = hasattr(args, "custom") and bool(args.custom) == True
+
+# By specific models
+is_flux = hasattr(args, "flux") and bool(args.flux) == True
+is_optional_flux = hasattr(args, "optionalflux") and bool(args.optionalflux) == True
+is_zimage = hasattr(args, "zimage") and bool(args.zimage) == True
+is_klein = hasattr(args, "klein") and bool(args.klein) == True
+
+
 
 
 # Setup required custom_nodes 
-if is_core or is_nodes:
+if is_core or is_nodes or is_flux or is_zimage or is_klein or is_optional_flux:
      with open(required_nodes_file, "r") as f:
         required_nodes = json.load(fp=f)
         for node in required_nodes:
@@ -100,9 +125,29 @@ if is_optional:
     with open(optional_models_path, "r") as f:
         all_models = all_models + json.load(fp=f)
 
+# Setup Flux or Klein models only
+if is_flux or is_klein or is_optional_flux:
+    with open(shared_flux_models_path, "r") as f:
+        all_models = all_models + json.load(fp=f)
+    if is_flux:
+        with open(flux_models_path, "r") as f:
+            all_models = all_models + json.load(fp=f)
+    elif is_klein:
+        with open(klein_models_path, "r") as f:
+            all_models = all_models + json.load(fp=f)
+    else:
+        with open(optional_flux_models_path, "r") as f:
+            all_models = all_models + json.load(fp=f)
+
+# Setup ZImage models
+
+if is_zimage:
+    with open(zimage_models_path, "r") as f:
+        all_models = all_models + json.load(fp=f)
+
 # Setup custom models
-if hasattr(args, "custom") and bool(args.custom) == True and len(args.custom) > 0:
-    for custom_path in args.custom:
+if is_custom and len(args.custom) > 0:
+    for custom_path in args.custom: 
         custom_models_path = path.join(custom_path)
 
         with open(custom_models_path) as f:
