@@ -23,10 +23,5 @@
     filename: "FLUX.1-Turbo-Alpha.safetensors",
     url: "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors",
     path: "models/loras",
-  },
-  {
-    filename: "t5xxl_fp16.safetensors",
-    url: "https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp16.safetensors",
-    path: "models/text_encoders",
-  },
+  }
 ]
