@@ -44,4 +44,9 @@
     category: "ComfyUI-nunchaku",
     url: "https://github.com/nunchaku-ai/ComfyUI-nunchaku",
   },
+  {
+    name: "comfyui_controlnet_aux",
+    category: "comfyui_controlnet_aux",
+    url: "https://github.com/Fannovel16/comfyui_controlnet_aux",
+  },
 ]
