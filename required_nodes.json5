@@ -49,4 +49,9 @@
     category: "comfyui_controlnet_aux",
     url: "https://github.com/Fannovel16/comfyui_controlnet_aux",
   },
+  {
+    name: "Civicomfy",
+    category: "Civicomfy",
+    url: "https://github.com/MoonGoblinDev/Civicomfy",
+  },
 ]
