@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from git import Repo, RemoteProgress
 import subprocess
 from rich import print
+import time
+
 
 # Parse .env variables
 load_dotenv()
@@ -35,6 +37,7 @@ parser.add_argument("--flux", action="store_true", help="Install flux Krita mode
 parser.add_argument("--optionalflux", action="store_true", help="Install Optional flux Krea & Kontext models & nodes (includes: required)")
 parser.add_argument("--zimage", action="store_true", help="Install z-image Krita models & nodes (includes: required and z-image models)")
 parser.add_argument("--klein", action="store_true", help="Install Flux Klein Krita models & nodes (includes: required and Flux Klein models)")
+parser.add_argument("--delay", action="store",type=float, default=None, help="Set a delay between each request (default: None)")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -75,6 +78,7 @@ is_required = hasattr(args, "required") and bool(args.required) == True
 is_optional = hasattr(args, "optional") and args.optional == True
 is_bymodels = hasattr(args, "bymodels") and bool(args.bymodels) == True
 is_custom = hasattr(args, "custom") and bool(args.custom) == True
+is_delayed = hasattr(args, "delay") and bool(args.delay) == True
 
 # By specific models
 is_flux = hasattr(args, "flux") and bool(args.flux) == True
@@ -172,6 +176,8 @@ for model in all_models:
             s.headers['Authorization'] = f'Bearer {huggingface_secret}'
         with spinner('Processing'):
             download(f"{url}", folder=model['path'], filename=model['filename'], session=s)
+            if is_delayed:
+                time.sleep(float(args.delay))
 
 
 spin.succeed("All models are downaloded successfully!")

@@ -9,4 +9,79 @@
     url: "https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors",
     path: "models/diffusion_models",
   },
+  {
+    filename: "pixelwave_flux1Schnell04.safetensors",
+    url: "https://civitai.com/api/download/models/1726219?type=Model&format=SafeTensor&size=full&fp=bf16",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "fluxUnchainedBySCG_schnfuV13Unet4step.safetensors",
+    url: "https://civitai.com/api/download/models/751510?type=Model&format=SafeTensor&size=pruned&fp=fp8",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "redcraftMar0826LatestZib_reflexNSFW.safetensors",
+    url: "https://civitai.com/api/download/models/1126236?type=Model&format=SafeTensor&size=pruned&fp=nf4",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "speedFP8_e5m2.safetensors",
+    url: "https://civitai.com/api/download/models/706389?type=Model&format=SafeTensor&size=pruned&fp=bf16",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "speedQ8_ggufQ8SCHNELLDEV.zip",
+    url: "https://civitai.com/api/download/models/739814?type=Model&format=Diffusers&size=pruned&fp=fp16",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "creartSchnellBnbNf4_bnbNf4Unet.safetensors",
+    url: "https://civitai.com/api/download/models/770571?type=Model&format=SafeTensor&size=full&fp=nf4",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "fluxTestMerge_a01V10.safetensors",
+    url: "https://civitai.com/api/download/models/1633113?type=Model&format=SafeTensor&size=pruned&fp=fp8",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "shuttleJaguar_fp8.safetensors",
+    url: "https://civitai.com/api/download/models/1313926?type=Model&format=SafeTensor&size=pruned&fp=fp8",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "shuttle31Aesthetic_v10.safetensors",
+    url: "https://civitai.com/api/download/models/1116641?type=Model&format=SafeTensor&size=full&fp=bf16",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "flexFlex2Preview_flex2Preview.safetensors",
+    url: "https://civitai.com/api/download/models/1696420?type=Model&format=SafeTensor&size=full&fp=fp16",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "flexFlex2Preview_flexPaint.safetensors",
+    url: "https://civitai.com/api/download/models/1428162?type=Model&format=SafeTensor&size=pruned&fp=fp8",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "artsyLite_v1Q4KS.gguf",
+    url: "https://civitai.com/api/download/models/1030326?type=Model&format=GGUF&size=pruned&fp=fp8",
+    path: "models/unet",
+  },
+  {
+    filename: "flux1SchnellFp8_schnellFp8.safetensors",
+    url: "https://civitai.com/api/download/models/936316?type=Model&format=SafeTensor&size=full&fp=fp8",
+    path: "models/diffusion_models",
+  },
+  {
+    filename: "vae_flux1SchnellFp8_schnellFp8.safetensors",
+    url: "https://civitai.com/api/download/models/936316?type=VAE",
+    path: "models/vae",
+  },
+  {
+    filename: "fenrisxlFlux_fenrisFluxV1GGUF.gguf",
+    url: "https://civitai.com/api/download/models/952353?type=Model&format=GGUF&size=full&fp=fp16",
+    path: "models/unet",
+  },
 ]
